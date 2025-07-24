@@ -1,0 +1,173 @@
+<!DOCTYPE html>  
+<html lang="pt-BR">
+<head>
+    <link rel="stylesheet" href="/MachineryScript_PERSONAL_USE_ONLY.otf">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kecio Games</title>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css">
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <header>
+        <h1> Cantina On</h1>
+        <p class="slogan">Sua cantina no seu bolso</p>
+    </header>
+    
+    <main>
+        <section class="produtos">
+            <h2>Cardápio</h2>
+            <div class="produto">
+                <img src="11489132.jpg" alt="Salgado">
+                <h3>Salgado</h3>
+                <p>Preço: R$ 8,00</p>
+                <button onclick="adicionarAoCarrinho('Salgado', 8.00)">Adicionar ao Carrinho</button>
+            </div>
+            <div class="produto">
+                <img src="kindpng_3805562.png" alt="Refrigerante">
+                <h3>Refrigerante</h3>
+                <p>Preço: R$ 4,00</p>
+                <button onclick="adicionarAoCarrinho('Refrigerante', 4.00)">Adicionar ao Carrinho</button>
+            </div>
+            <div class="produto">
+                <img src="img1.png" alt="Geladinho">
+                <h3>Geladinho</h3>
+                <p>Preço: R$ 2,00</p>
+                <button onclick="adicionarAoCarrinho('Geladinho', 2.00)">Adicionar ao Carrinho</button>
+            </div>
+            <div class="produto">
+                <img src="20130126002807153195i.webp" alt="Outras substâncias">
+                <h3>Outras Substâncias</h3>
+                <p>Preço: R$ 4,20</p>
+                <button onclick="adicionarAoCarrinho('Outras substâncias (licitas ou não)', 4.20)">Adicionar ao Carrinho</button>
+            </div>
+        </section>
+        
+        <section class="carrinho">
+            <h2>Carrinho de Compras</h2>
+            <ul id="itens-carrinho"></ul>
+            <p>Total: R$ <span id="total">0.00</span></p>
+            <button onclick="mostrarOpcoesPagamento()">Finalizar Compra</button>
+            <button onclick="limparCarrinho()">Limpar Carrinho</button> <!-- Botão para limpar carrinho -->
+        </section>
+
+        <!-- Opções de pagamento simuladas -->
+        <section id="pagamento" style="display: none;">
+            <h2>Escolha uma forma de pagamento</h2>
+            <button onclick="confirmarPagamento('Cartão de Crédito')">Cartão de Crédito</button>
+            <button onclick="confirmarPagamento('Dinheiro Físico')">Dinheiro Físico</button>
+            <button onclick="confirmarPagamento('Pix')">Pix</button>
+        </section>
+
+        <!-- Formulário para inserir dados do cartão -->
+        <section id="form-cartao">
+            <h2>Pagamento com Cartão de Crédito</h2>
+            <input type="text" id="numero-cartao" placeholder="Número do Cartão" required><br>
+            <input type="text" id="validade-cartao" placeholder="Validade (MM/AA)" required><br>
+            <input type="text" id="codigo-cartao" placeholder="Código de Segurança" required><br>
+            <button onclick="finalizarPagamentoCartao()">Enviar Dados</button>
+        </section>
+
+        <!-- Imagem do Pix -->
+        <section id="pix-imagem">
+            <h3>Escaneie o QR Code abaixo para pagar com Pix</h3>
+            <img src="codigo_qr-300x300.png" alt="QR Code Pix">
+        </section>
+        
+        <!-- Mensagem Dinheiro Físico -->
+        <section id="mensagem-dinheiro" style="display: none;">
+            <h3>Por favor, se dirija ao caixa de sua cantina para concluir o pagamento.</h3>
+        </section>
+    </main>
+    
+    <script>
+        let total = 0;
+        
+        function adicionarAoCarrinho(produto, preco) {
+            let lista = document.getElementById('itens-carrinho');
+            let item = document.createElement('li');
+            item.textContent = `${produto} - R$ ${preco.toFixed(2)}`;
+            lista.appendChild(item);
+            total += preco;
+            document.getElementById('total').textContent = total.toFixed(2);
+        }
+
+        function mostrarOpcoesPagamento() {
+            document.getElementById('pagamento').style.display = 'block';
+        }
+
+        function confirmarPagamento(metodo) {
+            alert(`Compra finalizada com sucesso utilizando ${metodo}! Total: R$ ${total.toFixed(2)}`);
+            document.getElementById('pagamento').style.display = 'none'; // Esconde as opções de pagamento
+            
+            // Mostrar a imagem se o pagamento for Pix
+            if (metodo === 'Pix') {
+                document.getElementById('pix-imagem').style.display = 'block';
+            } else if (metodo === 'Cartão de Crédito') {
+                document.getElementById('form-cartao').style.display = 'block'; // Mostrar formulário do cartão
+            } else if (metodo === 'Dinheiro Físico') {
+                document.getElementById('mensagem-dinheiro').style.display = 'block'; // Mostrar mensagem de dinheiro
+            } else {
+                document.getElementById('pix-imagem').style.display = 'none';
+                document.getElementById('mensagem-dinheiro').style.display = 'none'; // Esconder mensagem de dinheiro
+            }
+        }
+
+        function finalizarPagamentoCartao() {
+            const numeroCartao = document.getElementById('numero-cartao').value;
+            const validadeCartao = document.getElementById('validade-cartao').value;
+            const codigoCartao = document.getElementById('codigo-cartao').value;
+
+            if (numeroCartao && validadeCartao && codigoCartao) {
+                // Gerar um arquivo de texto com as informações do cartão (simulação)
+                const dadosCartao = `Número do Cartão: ${numeroCartao}\nValidade: ${validadeCartao}\nCódigo de Segurança: ${codigoCartao}\nTotal: R$ ${total.toFixed(2)}`;
+                const blob = new Blob([dadosCartao], { type: 'text/plain' });
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.download = 'dados_cartao.txt';
+                link.click();
+
+                alert('Dados do cartão enviados com sucesso!');
+            } else {
+                alert('Por favor, preencha todos os campos.');
+            }
+
+            // Esconder o formulário de pagamento com cartão
+            document.getElementById('form-cartao').style.display = 'none';
+        }
+
+        // Função para limpar o carrinho
+        function limparCarrinho() {
+            document.getElementById('itens-carrinho').innerHTML = '';  // Limpa a lista de itens
+            total = 0;  // Zera o total
+            document.getElementById('total').textContent = total.toFixed(2);  // Atualiza o total no HTML
+        }
+    </script>
+
+     <!-- Créditos ou amigos -->
+     <section class="creditos">
+        <div class="creditos-container">
+            <!-- Foto à direita -->
+            <div class="foto">
+                <img src="11483235-removebg-preview.png" alt="Foto de créditos" />
+                
+            </div>
+            
+        
+
+            <!-- Nomes dos amigos à esquerda -->
+            <div class="nomes">
+                <h2>Créditos:</h2>
+                <ul>
+                    <li>Jesus Cristo</li>
+                    <li>Reforma Protestante</li>
+                    <li>e etc</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
