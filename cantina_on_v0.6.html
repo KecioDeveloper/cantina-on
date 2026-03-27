@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="img/cantina-on-logotype3.png" type="image/x-icon">
+  <title>Feliz Natal</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+  <h1>Cantina On</h1>
+  <p class="slogan">Sua cantina no seu bolso ;))</p>
+  <button class="menu-floating" onclick="toggleMenu()">☰</button>
+</header>
+
+<nav id="menuLateral" class="menu-lateral">
+  <a href="cantina_on_v0.6.html">Cardápio</a>
+  <a href="sobre.html">Sobre</a>
+  <a href="contato.html">Contato</a>
+  <a href="local.html">Retirada</a>
+  <button class="fechar" onclick="toggleMenu()">✕</button>
+</nav>
+
+<button class="menu-floating" onclick="toggleMenu()">☰</button>
+
+<div id="menuOverlay" class="menu-overlay" onclick="toggleMenu()"></div>
+
+<nav id="menuLateral" class="menu-lateral">
+  <a href="cantina_on_v0.6.html">Cardápio</a>
+  <a href="sobre.html">Sobre</a>
+  <a href="contato.html">Contato</a>
+  <button class="fechar" onclick="toggleMenu()">✕</button>
+</nav>
+
+
+  <main>
+    <section class="produtos">
+      <h2>Cardápio</h2>
+    </section>
+
+    <section class="carrinho">
+      <h2>Carrinho (<span id="qtd-itens">0</span> itens)</h2>
+      <ul id="itens-carrinho"></ul>
+      <p>Total: R$ <span id="total">0.00</span></p>
+      <button onclick="mostrarOpcoesPagamento()">Finalizar Compra</button>
+      <button onclick="limparCarrinho()">Limpar</button>
+    </section>
+
+    <section id="pagamento" style="display:none;">
+      <h2>Escolha uma forma de pagamento</h2>
+      <button onclick="confirmarPagamento('Cartão de Crédito')">Cartão de Crédito</button>
+      <button onclick="confirmarPagamento('Dinheiro Físico')">Dinheiro Físico</button>
+      <button onclick="confirmarPagamento('Pix')">Pix</button>
+    </section>
+
+    <section id="form-cartao" style="display:none;">
+      <h2>Pagamento com Cartão</h2>
+      <input type="text" id="numero-cartao" placeholder="Número do Cartão"><br>
+      <input type="text" id="validade-cartao" placeholder="Validade (MM/AA)"><br>
+      <input type="text" id="codigo-cartao" placeholder="Código de Segurança"><br>
+      <button onclick="finalizarPagamentoCartao()">Enviar Dados</button>
+    </section>
+
+    <section id="pix-imagem" style="display:none;">
+      <h3>Escaneie o QR Code abaixo para pagar com Pix</h3>
+      <img src="img/codigo_qr-300x300.png" alt="QR Code Pix">
+    </section>
+
+    <section id="mensagem-dinheiro" style="display:none;">
+      <h3>Por favor, se dirija ao caixa da cantina para concluir o pagamento.</h3>
+    </section>
+
+    <div id="painel" class="painel-adm" style="display:none;">
+      <h2>Modo Administrador</h2>
+      <div class="lista-itens"></div>
+      <hr>
+      <p>Adicionar item rápido:</p>
+      <button onclick="adicionarSugestao('Salgado', 8, 'img/salgado-previa.jpg')">Salgado</button>
+      <button onclick="adicionarSugestao('Refrigerante', 4, 'img/refri.png')">Refrigerante</button>
+      <button onclick="adicionarSugestao('Geladinho', 2, 'img/geladinho.png')">Geladinho</button>
+      <hr>
+      <input type="text" id="nomeNovo" placeholder="Nome">
+      <input type="number" id="precoNovo" placeholder="Preço">
+      <input type="text" id="imgNovo" placeholder="URL da imagem (opcional)">
+      <button onclick="adicionarItem()">Adicionar</button>
+      <button onclick="fecharPainel()">Fechar</button>
+    </div>
+
+    <button id="admBtn" onclick="modoadm()">⚙️</button>
+  </main>
+
+  <footer class="creditos">
+    <div class="creditos-container">
+      <div class="foto">
+        <img src="img/jesus-copy.png" alt="Foto de créditos" />
+        <img src="img/cantina-on-logotype3.png" alt="Logo da Cantina On" />
+      </div>
+      <p>&copy; Todos os direitos reservados ao Time 7.</p>
+    </div>
+  </footer>
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('menuLateral');
+    const overlay = document.getElementById('menuOverlay');
+    menu.classList.toggle('show');
+    overlay.classList.toggle('show');
+  }
+
+  </script>
+  <script src="js/cantina_on.js"></script>
+  
+</body>
+</html>

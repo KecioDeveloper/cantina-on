@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <link rel="shortcut icon" href="img/cantina-on-logotype.png" type="image/x-icon">
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cantina On — Escolha de Local de Retirada</title>
+  <link rel="stylesheet" href="css/local.css" />
+</head>
+<body>
+  <main class="container" role="main">
+    <header>
+      <a href="cantina_on_v0.6.html" class="voltar-btn">← Voltar</a>
+      
+      <div class="logo">
+        <img src="img/cantina-on-logotype.png" alt="Logo Cantina On" />
+      </div>
+      
+      <div>
+        <h1>Cantina On — Escolha o local de retirada</h1>
+        <p class="lead">Selecione a cantina onde você prefere retirar seu pedido. (apenas ilustrativo)</p>
+      </div>
+    </header>
+
+    <section aria-labelledby="opcoes-title">
+      <h2 id="opcoes-title" class="sr-only">Opções de retirada</h2>
+
+      <div class="cards" id="cards">
+        <button class="card" data-id="alberto-salotti" aria-pressed="false">
+          <div class="title">Cantina — Alberto Salotti</div>
+          <div class="subtitle">Escola Alberto Salotti</div>
+          <div class="meta">Retirada disponível das 11:00 às 20:00</div>
+        </button>
+
+        <button class="card" data-id="jose-duarte-vieira" aria-pressed="false">
+          <div class="title">Cantina — José Duarte Vieira</div>
+          <div class="subtitle">Escola José Duarte Vieira</div>
+          <div class="meta">Retirada disponível das 10:30 às 19:50</div>
+        </button>
+
+        <button class="card" data-id="cantina-central" aria-pressed="false">
+          <div class="title">Siri Cascudo</div>
+          <div class="subtitle">Fenda do Bikini</div>
+          <div class="meta">Retirada: 12:00 — 15:00</div>
+        </button>
+      </div>
+
+      <div class="actions">
+        <div class="info" id="selectedInfo">Nenhum local selecionado</div>
+        <div style="flex:1"></div>
+        <button class="btn ghost" id="limparBtn">Limpar</button>
+        <button class="btn primary" id="confirmBtn" disabled>Confirmar retirada</button>
+      </div>
+
+      <div class="toast" id="toast" role="status" aria-live="polite">
+        <strong id="toastText"></strong>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/local.js"></script>
+</body>
+</html>

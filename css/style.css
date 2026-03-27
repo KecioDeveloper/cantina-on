@@ -1,0 +1,471 @@
+/* ================================
+   CSS BY KECIO
+================================ */
+
+body {
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+  font-family: 'String Round', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background-color: #f8f9fa;
+  background-image: url(/img/wallpaper2.jpg);
+  padding: 0;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  background-attachment: fixed;
+}
+
+
+h2,h3,h4,h5,h6 {
+  font-family: 'Arial';
+}
+
+p{
+  
+  font-family: 'Arial';
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+@font-face {
+  font-family: 'MachineryScript';
+  src: url('../fontes/MachineryScript_PERSONAL_USE_ONLY.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+header {
+  background: linear-gradient(135deg, #eb1d28);
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px 70px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  position: relative;
+}
+
+
+
+
+header h1 {
+  font-size: 42px;
+  letter-spacing: 1px;
+}
+
+header p {
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+header h1 {
+  font-family: 'MachineryScript';
+  font-size: 52px;
+  font-weight: normal;
+  margin-bottom: 5px;
+}
+
+.menu-floating {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #000;
+  color: #fff;
+  border: none;
+  font-size: 24px;
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+  z-index: 25;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  transition: 0.3s;
+  width: auto;
+  height: auto;
+}
+
+.menu-floating:hover {
+  background-color: #8f1f1f;
+  transform: scale(1.05);
+}
+
+header button.menu-floating {
+  display: inline-block;
+  width: auto;
+  margin: 0;
+  padding: 6px 10px;
+}
+
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+  z-index: 20;
+}
+
+.menu-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu-lateral {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 230px;
+  height: 100%;
+  background-color: #111;
+  
+  font-family: 'Arial';
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 70px;
+  transition: right 0.3s ease;
+  z-index: 25;
+  box-shadow: -3px 0 10px rgba(0,0,0,0.3);
+}
+
+.menu-lateral.show {
+  right: 0;
+}
+
+.menu-lateral a {
+  
+  font-family: 'Arial';
+  color: white;
+  text-decoration: none;
+  background: #222;
+  width: 80%;
+  text-align: center;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  transition: 0.2s;
+  font-size: 17px;
+  
+}
+
+.menu-lateral a:hover {
+  
+  transform: scale(1.05);
+  background: #8f1f1f;
+}
+
+.menu-lateral .fechar {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  margin-top: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.menu-lateral .fechar:hover {
+  color: #ff0000;
+}
+
+
+@media (max-width: 600px) {
+  .menu-lateral {
+    width: 75%;
+    right: -75%;
+  }
+  .menu-lateral.show {
+    right: 0;
+  }
+  .menu-floating {
+    font-size: 24px;
+    padding: 5px 9px;
+  }
+}
+
+
+/* ================================
+   CONTEÚDO GERAL
+================================ */
+.produto {
+  background: #fff;
+  border-radius: 15px;
+  padding: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: 0.3s ease;
+}
+
+.produto:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+}
+
+.produto img {
+  width: 70px;
+  height: 70px;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.produto button {
+  background: linear-gradient(135deg, #ff3b3b, #ff6b6b);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.produto button:hover {
+  opacity: 0.85;
+}
+.produtos, .carrinho {
+  margin: 20px auto;
+  width: 90%;
+  max-width: 700px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.produtos:hover {
+  opacity: 1;
+  background-color: #ffffff;
+  transform: scale(1.05);
+}
+
+.produto {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
+.produto:hover { transform: scale(1.02); }
+
+.produto img {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+}
+
+.produto h3 {
+  font-family: 'Arial'; 
+  font-weight: normal;
+
+}
+
+
+
+/* ================================
+   BOTÕES GERAIS
+================================ */
+button {
+  background-color: #000;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: 'Arial';
+}
+button:hover { 
+  background-color: #8f1f1f;
+  opacity: 0.85;
+  transform: scale(1.02);
+ }
+
+.carrinho button {
+  background: linear-gradient(135deg, #ff3b3b, #ff6b6b);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+.carrinho button:hover {
+  background-color: #a91818;
+}
+
+/* ================================
+   BOTÃO ADM
+================================ */
+#admBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+  font-size: 22px;
+  cursor: pointer;
+  opacity: 0.85;
+  transition: 0.3s;
+  z-index: 25;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#admBtn:hover {
+  opacity: 1;
+  background-color: #000;
+  transform: scale(1.05);
+}
+
+/* ================================
+   PAINEL DO ADM
+================================ */
+.painel-adm {
+  background: #fff;
+  border: 2px solid #000;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 500px;
+  margin: 20px auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  text-align: center;
+}
+.painel-adm input {
+  margin: 5px;
+  padding: 6px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.creditos {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #f1f1f141;
+  border-radius: 10px;
+}
+.creditos-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.foto img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* ================================
+   PÁGINAS SECUNDÁRIAS
+================================ */
+.pagina-secundaria {
+  margin: 30px auto;
+  width: 90%;
+  max-width: 700px;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'String Round';
+}
+.pagina-secundaria h2 {
+  font-family: 'MachineryScript';
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+.pagina-secundaria p {
+  font-size: 17px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.foto-sobre img {
+  width: 150px;
+  margin: 20px 0;
+  border-radius: 10px;
+}
+
+.voltar {
+  margin-top: 15px;
+  background: #ff0000;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.voltar:hover { background: #cc0000; }
+
+/* ================================
+   cONTATO
+================================ */
+.form-contato {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0;
+}
+.form-contato input,
+.form-contato textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-family: 'String Round';
+}
+.form-contato button {
+  background-color: #000;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.form-contato button:hover { background-color: #8f1f1f; }
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #797979f4;
+  background: #bebebe;
+  border-top: 1px solid #e4e4e441;
+  margin-top: 50px;
+}
+
+@media (max-width: 600px) {
+  .produto {
+    flex-direction: column;
+    align-items: center;
+  }
+  .produto img { width: 80px; height: 80px; }
+  button { width: 100%; margin-bottom: 5px; }
+  h1 { font-size: 38px; }
+  .menu-lateral { width: 70%; }
+  #admBtn { width: 40px; height: 40px; font-size: 20px; }
+}

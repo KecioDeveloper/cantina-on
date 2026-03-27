@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fale Conosco</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="img/cantina-on-logotype.png" type="image/x-icon">
+</head>
+<body>
+  <header>
+    <h1>Cantina On</h1>
+    <p class="slogan">Sua cantina no seu bolso ;))</p>
+  </header>
+
+  <main class="pagina-secundaria">
+    <h2>Fale Conosco</h2>
+    <p>
+      Tem alguma dúvida, sugestão ou quer deixar seu feedback?  
+      Envie uma mensagem para a equipe da <strong>Cantina On</strong>!
+    </p>
+
+    <form class="form-contato" onsubmit="enviarMensagem(event)">
+      <input type="text" id="nome" placeholder="Seu nome" required>
+      <input type="email" id="email" placeholder="Seu e-mail" required>
+      <textarea id="mensagem" placeholder="Digite sua mensagem..." rows="5" required></textarea>
+      <button type="submit">Enviar Mensagem</button>
+    </form>
+
+    <p id="resposta" style="display:none; color:green; margin-top:10px;">
+      ✅ Mensagem enviada com sucesso! Entraremos em contato em breve.
+    </p>
+
+    <button class="voltar" onclick="window.location.href='cantina_on_v0.6.html'">⬅ Voltar ao Início</button>
+  </main>
+
+  <footer class="creditos">
+    <p>&copy; 2025 Cantina On — Todos os direitos reservados ao Time 7.</p>
+  </footer>
+
+  <script>
+    function enviarMensagem(event) {
+      event.preventDefault();
+      document.querySelector('.form-contato').reset();
+      document.getElementById('resposta').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

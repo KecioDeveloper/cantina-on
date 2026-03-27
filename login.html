@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link id="logor" rel="shortcut icon" href="/img/cantina-on-logotype.png" type="image/x-icon">
+  <title>Login</title>
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="img/cantina-on-logotype.png" alt="Cantina On Logo">
+      <h1>Cantina On</h1>
+    </div>
+
+    <p class="intro">
+      Faça o login com a sua conta para acessar a cantina online e realizar reservas.
+    </p>
+
+    <form id="loginForm">
+      <input type="email" placeholder="E-mail" required>
+      <input type="password" placeholder="Senha" required>
+
+      <a href="#" class="forgot">Esqueceu senha?</a>
+
+      <div class="social-login">
+        <img src="img/google.png" alt="Google">
+        <img src="img/sala.png" alt="Sala do Futuro">
+      </div>
+
+      <button type="submit" class="btn">Entrar</button>
+    </form>
+
+    <p class="signup">
+      Minha primeira vez, <a href="#">criar uma conta</a>
+    </p>
+  </div>
+
+  <script>
+    const form = document.getElementById("loginForm");
+    form.addEventListener("submit", function(e) {
+      e.preventDefault(); 
+      window.location.href = "delay.html";
+    });
+  </script>
+</body>
+</html>
